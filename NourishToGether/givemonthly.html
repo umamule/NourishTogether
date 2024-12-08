@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nourish-Together</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    /* CSS for the popup */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+
+    /* CSS for the overlay */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+    }
+
+    .success-message {
+        color: green;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Give Monthly</h2>
+    <form id="registrationForm" onsubmit="return validateForm()" action="given.php" method="" action="https://api.web3forms.com/submit" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error-message"></div>
+
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error-message"></div>
+
+        <label for="mobile">Mobile no</label>
+        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required>
+        <div id="mobileError" class="error-message"></div>
+
+        <button type="submit" onclick="">Submit</button>
+    </form>
+
+    <!-- Popup message -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <p class="success-message">Application submitted successfully!</p>
+        <button onclick="hidePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("mobile").value;
+        var password = document.getElementById("password").value;
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var mobileError = document.getElementById("mobileError");
+        var passwordError = document.getElementById("passwordError");
+        var isValid = true;
+
+        // Reset previous error messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        mobileError.textContent = "";
+        passwordError.textContent = "";
+
+        // Validate name
+        if (name === "") {
+            nameError.textContent = "Name is required";
+            isValid = false;
+        }
+
+        // Validate email
+        if (email === "") {
+            emailError.textContent = "Email is required";
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            emailError.textContent = "Invalid email format";
+            isValid = false;
+        }
+
+        // Validate mobile number
+        if (mobile === "") {
+            mobileError.textContent = "Mobile number is required";
+            isValid = false;
+        } else if (!isValidMobile(mobile)) {
+            mobileError.textContent = "Invalid mobile number format";
+            isValid = false;
+        }
+
+        // Validate password
+        if (password === "") {
+            passwordError.textContent = "Password is required";
+            isValid = false;
+        }
+
+        if (isValid) {
+            showPopup();
+        }
+
+        return false;
+    }
+
+    // Function to validate email format
+    function isValidEmail(email) {
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    // Function to validate mobile number format
+    function isValidMobile(mobile) {
+        var mobilePattern = /^[0-9]{10}$/;
+        return mobilePattern.test(mobile);
+    }
+
+    // Function to show the popup
+    function showPopup() {
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("popup").style.display = "block";
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

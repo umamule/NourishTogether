@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nourish-Together</title>
+  <link rel="stylesheet" href="index.html">
+ 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .jumbotron {
+      background-color: #e6c262;
+      color: #ffffff;
+    }
+    .feature-box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .feature-box h3 {
+      color: black;
+    }
+    .footer {
+      background-color: #ca6da0;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    form {
+  margin-top: 50px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: lighter;
+  
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar colorful bg ">
+    <a class="navbar-logo" href="#">
+      <img src="Nourish Together logo.png" height="40" alt="Nourish Together" loading="lazy" />
+    </a>
+    <a class="navbar-brand" href="index.html"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="subscribe.html">subscribe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-4">Welcome to Nourish-Together</h1>
+      <p class="lead"> Nourish-Together,Sharing plates,Helping Future.</p>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="feature-box">
+            <h3> Vision</h3>
+            <p> "To create cities where access to nutritious food is universal, food wastage is minimized, and healthy habits are championed, leading to the eradication of hunger and enhanced well-being by 2030. Through collaborative government action, we strive for sustainable, equitable, and flourishing urban communities."</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature-box">
+            <h3>Mission</h3>
+            <p> "Our mission is to advocate for policies ensuring equal access to nutritious food, reducing food wastage, promoting healthy habits, and ending urban hunger by 2030. Through partnerships with governments, NGOs, businesses, and communities, we aim to build sustainable and inclusive food systems prioritizing the well-being of all residents. Together, let's spread smiles, nurture our environment, and create a brighter future for all."</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="feature-box">
+            <h3>Recycle</h3>
+            <h4>Food delivery</h4>
+            <img src="C:\Users\saksh\OneDrive\Desktop\sunhack\recycleimg" alt="">
+            <p> You dont able to reach us fresh food you can also deliver us that wastaed food we use that food as fertilizers and recycle that food.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <center><h1>Contact Us</h1></center>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="post">
+            <div class="form-group">
+              <input type="hidden" name="access_key" value="93a5f462-7109-4c28-9d2a-66804437ed7d">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <center><button type="submit">Send Message</button></center>
+        </form>
+    </div>
+  </section>
+
+  
+
+  <!-- Bootstrap JS, jQuery, Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

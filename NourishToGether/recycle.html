@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Food Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+
+        /* CSS for the overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+        }
+
+        /* CSS for styling the button */
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ECE3F0;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #D3BBDD;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        
+        /* Content styles */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #EFE7D3;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        /* Iframe styles */
+        iframe {
+            display: block;
+            margin: 20px auto;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recycle Food</h1>
+        <center>  <img src="recycleimg" alt="" width="40px" height="40px"></center>    </header>
+    <section class="content">
+        <p>Welcome to our food recycling program! Together, we can reduce food waste and make a positive impact on the environment.</p>
+        <h5> If you have wasted food, don't throw it away; we can recycle this food and make fertilizers.</h5>
+
+        <form id="pickupForm" action="https://api.web3forms.com/submit" method="post">
+            <div class="form-group">
+            <input type="hidden" name="access_key" value="042fe7c9-cf80-4cd5-92e5-928b3d69ef5c">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" name="mobile" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <center><button id="submitBtn">Requst To pickup</button></center>
+            <div id="response"></div>
+          </div>
+        </form>
+<center>
+</center>
+    <!-- Popup message -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <p>Your Request was successfully reached to us !</p>
+        <p> Thank you !</p>
+        <button id="closeBtn">Close</button>
+    </div>
+
+    <script>
+        // JavaScript to show popup after clicking submit button
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            // Show overlay and popup
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("popup").style.display = "block";
+        });
+
+        // JavaScript to close popup
+        document.getElementById("closeBtn").addEventListener("click", function() {
+            // Hide overlay and popup
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("popup").style.display = "none";
+        });
+    </script>
+    </section>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.437544221916!2d75.3186090737912!3d19.863737981509846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb9860cbffffff%3A0xa66e2b579fb7570!2sDeogiri%20Institute%20of%20Engineering%20and%20Management%20Studies!5e0!3m2!1sen!2sin!4v1715411664253!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    
+</body>
+</html>
+
+
